@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SENSONCIS '26 | National Level Technical Symposium | EIE</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons CDN -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            liquid: {
+              purple: 'rgba(139, 92, 246, 0.25)',
+              violet: 'rgba(167, 139, 250, 0.25)',
+              mint: 'rgba(52, 211, 153, 0.25)',
+              dark: '#0f172a',
+            }
+          },
+          animation: {
+            'liquid-float': 'liquidFloat 7s ease-in-out infinite',
+            'liquid-glow': 'liquidGlow 4s ease-in-out infinite',
+            'shimmer-sweep': 'shimmerSweep 3s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+            'border-pulse': 'borderPulse 3s ease-in-out infinite',
+          },
+          keyframes: {
+            liquidFloat: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(1.5deg)' },
+            },
+            liquidGlow: {
+              '0%, 100%': { opacity: '0.7', filter: 'drop-shadow(0 0 20px rgba(167, 139, 250, 0.4))' },
+              '50%': { opacity: '1', filter: 'drop-shadow(0 0 35px rgba(52, 211, 153, 0.6))' },
+            },
+            shimmerSweep: {
+              '0%': { transform: 'translateX(-150%)' },
+              '100%': { transform: 'translateX(150%)' },
+            },
+            borderPulse: {
+              '0%, 100%': { borderColor: 'rgba(255, 255, 255, 0.85)', boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)' },
+              '50%': { borderColor: 'rgba(167, 139, 250, 1)', boxShadow: '0 0 30px rgba(52, 211, 153, 0.35)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Absolute Liquid Glass Core Classes */
+    
+    /* 1. Enhanced Floating Liquid Glass Dock (Navbar) */
+    .liquid-glass-nav {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(245, 243, 255, 0.45) 50%, rgba(236, 253, 245, 0.55) 100%);
+      backdrop-filter: blur(28px) saturate(210%);
+      -webkit-backdrop-filter: blur(28px) saturate(210%);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 
+        0 20px 50px -10px rgba(109, 40, 217, 0.18),
+        0 10px 20px -5px rgba(16, 185, 129, 0.15),
+        inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -2px 4px 0 rgba(167, 139, 250, 0.2);
+    }
+
+    /* 2. Glass Cards with Refraction & Gloss */
+    .liquid-glass-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.42) 100%);
+      backdrop-filter: blur(22px) saturate(190%);
+      -webkit-backdrop-filter: blur(22px) saturate(190%);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 
+        0 16px 36px -8px rgba(124, 58, 237, 0.1),
+        0 6px 16px -4px rgba(16, 185, 129, 0.08),
+        inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 2px 0 rgba(139, 92, 246, 0.1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .liquid-glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 45%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    .liquid-glass-card:hover {
+      transform: translateY(-6px) scale(1.012);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.52) 100%);
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 
+        0 24px 48px -10px rgba(124, 58, 237, 0.22),
+        0 12px 24px -6px rgba(16, 185, 129, 0.2),
+        inset 0 2px 3px 0 rgba(255, 255, 255, 1);
+    }
+
+    /* 3. Liquid Glass Buttons */
+    .liquid-glass-btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
+      color: #ffffff;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 
+        0 10px 25px -5px rgba(124, 58, 237, 0.4),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.8);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .liquid-glass-btn-primary:hover {
+      transform: translateY(-2.5px) scale(1.02);
+      box-shadow: 
+        0 16px 32px -4px rgba(16, 185, 129, 0.5),
+        0 0 20px 2px rgba(167, 139, 250, 0.4),
+        inset 0 1px 3px 0 rgba(255, 255, 255, 1);
+      filter: brightness(1.08);
+    }
+
+    .liquid-glass-btn-secondary {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(243, 232, 255, 0.55) 100%);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      color: #4c1d95;
+      box-shadow: 
+        0 8px 20px -4px rgba(124, 58, 237, 0.12),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+      transition: all 0.3s ease;
+    }
+
+    .liquid-glass-btn-secondary:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(236, 253, 245, 0.75) 100%);
+      border-color: rgba(255, 255, 255, 1);
+      color: #2e1065;
+      transform: translateY(-2px);
+      box-shadow: 
+        0 12px 28px -4px rgba(16, 185, 129, 0.25),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    }
+
+    /* 4. Translucent Liquid Glass Badge / Pill */
+    .liquid-glass-pill {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px) saturate(200%);
+      -webkit-backdrop-filter: blur(20px) saturate(200%);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 
+        0 10px 25px rgba(109, 40, 217, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    /* 5. Liquid Glass Input & Form Controls */
+    .liquid-glass-input {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+    }
+
+    .liquid-glass-input:focus {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(139, 92, 246, 0.8);
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.25), inset 0 1px 2px rgba(255, 255, 255, 1);
+      outline: none;
+    }
+
+    /* Page View Transitions */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(14px) scale(0.985);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .page-view.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Custom Glossy Scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(243, 232, 255, 0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, rgba(167, 139, 250, 0.6), rgba(52, 211, 153, 0.6));
+      border-radius: 9999px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, rgba(139, 92, 246, 0.8), rgba(16, 185, 129, 0.8));
+    }
+  </style>
+</head>
+
+<body class="h-full bg-slate-100 font-sans text-slate-800 antialiased selection:bg-purple-200 selection:text-purple-900 overflow-x-hidden relative">
+
+  <!-- Interactive Liquid Canvas Background (Ripples, Disturbance & Soft Physics) -->
+  <canvas id="liquid-bg" class="fixed inset-0 w-full h-full pointer-events-auto z-0"></canvas>
+
+  <!-- Main Glass Layout Container -->
+  <div class="relative z-10 flex flex-col min-h-screen pb-32">
+
+    <!-- Liquid Glass Header Banner -->
+    <header class="w-full px-4 pt-6 pb-2 max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3.5">
+        <div class="w-13 h-13 p-2.5 rounded-2xl liquid-glass-pill flex items-center justify-center text-purple-700 shadow-lg transform hover:rotate-6 transition-transform">
+          <i class="ph-bold ph-cpu text-2xl"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold tracking-widest text-purple-800 uppercase block">Dept. of EIE Presents</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-800 via-indigo-700 to-emerald-600">
+            SENSONCIS '26
+          </h1>
+        </div>
+      </div>
+
+      <!-- Quick Action Liquid Badges -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div class="px-4 py-2 rounded-full liquid-glass-pill text-xs font-bold text-slate-700 flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+          National Level Symposium
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN ROUTED PAGE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow mt-4">
+
+      <!-- =================================================================== -->
+      <!-- PAGE 1: HOME PAGE VIEW -->
+      <!-- =================================================================== -->
+      <section id="page-home" class="page-view active space-y-12">
+        
+        <!-- Hero Liquid Glass Banner -->
+        <div class="relative rounded-3xl p-8 sm:p-12 liquid-glass-card overflow-hidden text-center sm:text-left flex flex-col lg:flex-row items-center justify-between gap-10">
+          
+          <!-- Background Atmospheric Ambient Glass Glows -->
+          <div class="absolute -top-32 -left-32 w-80 h-80 bg-purple-300/40 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-300/40 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="max-w-2xl space-y-6 relative z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold uppercase tracking-wider border border-white/90 shadow-sm">
+              <i class="ph-fill ph-calendar-blank text-purple-600 text-sm"></i>
+              September 22, 2026
+            </div>
+            
+            <h2 class="text-4xl sm:text-6xl font-extrabold font-display text-slate-900 leading-tight">
+              Ignite Innovations in <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-indigo-600 to-emerald-500">Sensing & Control</span>
+            </h2>
+
+            <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+              Experience the premier national-level technical symposium hosted by the Department of Electronics & Instrumentation Engineering. Engage in flagship technical competitions, non-technical challenges, and hands-on industrial workshops in an interactive liquid interface.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-2">
+              <button onclick="navigateTo('events')" class="liquid-glass-btn-primary px-8 py-3.5 rounded-2xl font-bold text-sm tracking-wide flex items-center gap-2">
+                <span>Explore All Events</span>
+                <i class="ph-bold ph-arrow-right text-base"></i>
+              </button>
+
+              <button onclick="openFormManagerModal()" class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2">
+                <i class="ph-bold ph-note-pencil text-base text-purple-600"></i>
+                <span>Register via Google Forms</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Countdown Glass Tile -->
+          <div class="w-full lg:w-auto relative z-10">
+            <div class="p-6 rounded-3xl liquid-glass-card border border-white text-center space-y-5 shadow-2xl max-w-sm mx-auto">
+              <div class="text-xs font-extrabold text-purple-800 uppercase tracking-widest flex items-center justify-center gap-1.5">
+                <i class="ph-bold ph-timer text-xl text-purple-600"></i>
+                Event Countdown
+              </div>
+              
+              <div id="countdown-timer" class="grid grid-cols-4 gap-2 font-display">
+                <div class="liquid-glass-pill p-3 rounded-2xl text-center">
+                  <span id="cd-days" class="block text-2xl font-extrabold text-purple-950">00</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-600">Days</span>
+                </div>
+                <div class="liquid-glass-pill p-3 rounded-2xl text-center">
+                  <span id="cd-hours" class="block text-2xl font-extrabold text-purple-950">00</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-600">Hours</span>
+                </div>
+                <div class="liquid-glass-pill p-3 rounded-2xl text-center">
+                  <span id="cd-mins" class="block text-2xl font-extrabold text-purple-950">00</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-600">Mins</span>
+                </div>
+                <div class="liquid-glass-pill p-3 rounded-2xl text-center">
+                  <span id="cd-secs" class="block text-2xl font-extrabold text-emerald-600">00</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-600">Secs</span>
+                </div>
+              </div>
+
+              <div class="text-xs text-slate-600 font-semibold pt-2 border-t border-purple-200/80">
+                Venue: Department of EIE Block
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Symposium Quick Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div class="p-6 rounded-3xl liquid-glass-card text-center space-y-1.5">
+            <div class="text-3xl sm:text-4xl font-extrabold font-display text-purple-700">04</div>
+            <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Tech Events</div>
+          </div>
+          <div class="p-6 rounded-3xl liquid-glass-card text-center space-y-1.5">
+            <div class="text-3xl sm:text-4xl font-extrabold font-display text-indigo-700">04</div>
+            <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Non-Tech Events</div>
+          </div>
+          <div class="p-6 rounded-3xl liquid-glass-card text-center space-y-1.5">
+            <div class="text-3xl sm:text-4xl font-extrabold font-display text-emerald-600">02</div>
+            <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Workshops</div>
+          </div>
+          <div class="p-6 rounded-3xl liquid-glass-card text-center space-y-1.5">
+            <div class="text-3xl sm:text-4xl font-extrabold font-display text-purple-900">₹30K+</div>
+            <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">Prizes & Perks</div>
+          </div>
+        </div>
+
+
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PAGE 2: EVENTS PAGE VIEW -->
+      <!-- =================================================================== -->
+      <section id="page-events" class="page-view space-y-8">
+        
+        <!-- Header & Liquid Glass Category Tabs -->
+        <div class="p-6 sm:p-8 rounded-3xl liquid-glass-card flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 class="text-3xl font-extrabold font-display text-slate-900">Events & Workshops</h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">Explore all 10 events across Technical, Non-Technical, and Workshop categories.</p>
+          </div>
+
+          <!-- Glass Pill Filter Bar -->
+          <div class="flex flex-wrap items-center gap-2 p-2 rounded-2xl liquid-glass-pill">
+            <button onclick="filterEvents('all')" id="btn-tab-all" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-purple-700 text-white shadow-md">
+              All (10)
+            </button>
+            <button onclick="filterEvents('tech')" id="btn-tab-tech" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
+              Technical (4)
+            </button>
+            <button onclick="filterEvents('nontech')" id="btn-tab-nontech" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
+              Non-Tech (4)
+            </button>
+            <button onclick="filterEvents('workshop')" id="btn-tab-workshop" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-emerald-800">
+              Workshops (2)
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Events Grid -->
+        <div id="events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PAGE 3: ABOUT PAGE VIEW -->
+      <!-- =================================================================== -->
+      <section id="page-about" class="page-view space-y-10">
+        
+        <!-- Department Banner Glass Card -->
+        <div class="p-8 sm:p-10 rounded-3xl liquid-glass-card space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-emerald-900 text-xs font-extrabold">
+            <i class="ph-bold ph-buildings text-emerald-600"></i> Department of Electronics & Instrumentation Engineering
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">
+            About SENSONCIS '26
+          </h2>
+
+          <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+            SENSONCIS is a premier National Level Technical Symposium organized annually by the Department of Electronics and Instrumentation Engineering. Designed to cultivate technological innovation, engineering excellence, and multi-disciplinary talent, SENSONCIS provides a dynamic platform for students across the nation to present innovative ideas, solve engineering challenges, and gain hands-on expertise in automation, sensing technology, and robotics.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-4 pt-4 border-t border-purple-200/60">
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Symposium Date</h4>
+              <p class="text-xs text-purple-700 font-extrabold">22nd September 2026</p>
+            </div>
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Venue</h4>
+              <p class="text-xs text-purple-700 font-extrabold">EIE Department Block & Auditorium</p>
+            </div>
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Eligibility</h4>
+              <p class="text-xs text-emerald-700 font-extrabold">All UG / PG Engineering Students</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Symposium Schedule Timeline Glass Panel -->
+        <div class="p-8 rounded-3xl liquid-glass-card space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold font-display text-slate-900">Symposium Schedule</h3>
+              <p class="text-xs text-slate-600 mt-1">Full event itinerary for September 22, 2026</p>
+            </div>
+            <span class="px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold">1-Day Event</span>
+          </div>
+
+          <div class="relative border-l-2 border-purple-300/80 ml-4 space-y-6 pl-6 py-2">
+            <!-- Venue -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-indigo-800 uppercase">Venue</span>
+              <h4 class="font-bold text-slate-900 text-base">Maharaja Auditorium</h4>
+            </div>
+
+            <!-- 09:00 AM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-purple-800 uppercase">09:00 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">Inauguration</h4>
+            </div>
+
+            <!-- 09:30 AM -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-purple-800 uppercase">09:30 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">Felicitation: Principal Address, HOD Address</h4>
+            </div>
+
+            <!-- 10:30 AM - TechTransmit & Workshops -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-emerald-800 uppercase">10:30 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">TechTransmit & PLC, Node-RED</h4>
+              <p class="text-xs text-slate-600">Paper Presentation, Workshop</p>
+            </div>
+
+            <!-- 10:30 AM - Techora -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-emerald-800 uppercase">10:30 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">Techora</h4>
+              <p class="text-xs text-slate-600">Project Presentation</p>
+            </div>
+
+            <!-- 10:45 AM - Code Debug Console -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-indigo-800 uppercase">10:45 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">Code Debug Console</h4>
+              <p class="text-xs text-slate-600">Programming Challenge</p>
+            </div>
+
+            <!-- 10:45 AM - Bot Blitz -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-indigo-800 uppercase">10:45 AM</span>
+              <h4 class="font-bold text-slate-900 text-base">Bot Blitz</h4>
+              <p class="text-xs text-slate-600">Robo Race</p>
+            </div>
+
+            <!-- Lunch Break -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-amber-800 uppercase">12:15 PM - 01:15 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Lunch Break</h4>
+            </div>
+
+            <!-- 01:15 PM - Jumble Jam -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-purple-800 uppercase">01:15 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Jumble Jam</h4>
+            </div>
+
+            <!-- 02:00 PM - Memory Morph -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-pink-800 uppercase">02:00 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Memory Morph</h4>
+            </div>
+
+            <!-- 02:45 PM - Recall Rush -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-rose-500 ring-4 ring-rose-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-rose-800 uppercase">02:45 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Recall Rush</h4>
+            </div>
+
+            <!-- 03:30 PM - Pick and Unleash -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-orange-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-orange-800 uppercase">03:30 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Pick and Unleash</h4>
+            </div>
+
+            <!-- 04:00 PM - Valedictory -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-emerald-800 uppercase">04:00 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Valedictory Function</h4>
+            </div>
+
+            <!-- 04:30 PM - Event Ends -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-500 ring-4 ring-slate-100 shadow-md"></span>
+              <span class="text-xs font-extrabold text-slate-800 uppercase">04:30 PM</span>
+              <h4 class="font-bold text-slate-900 text-base">Event Ends</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coordinators Directory Panel -->
+        <div class="p-8 rounded-3xl liquid-glass-card space-y-6">
+          <h3 class="text-2xl font-bold font-display text-slate-900">Symposium Coordinators</h3>
+          
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Faculty Coordinator -->
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <span class="text-[10px] font-extrabold uppercase text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Staff Convener</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-1">Dr. K. Arunkumar</h4>
+              <p class="text-xs text-slate-600">Associate Professor, EIE</p>
+              <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 98765 43210</p>
+            </div>
+
+            <!-- Student Coordinator 1 -->
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <span class="text-[10px] font-extrabold uppercase text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Student Chairman</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-1">S. Vigneshwaran</h4>
+              <p class="text-xs text-slate-600">Final Year, EIE</p>
+              <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 91234 56789</p>
+            </div>
+
+            <!-- Student Coordinator 2 -->
+            <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
+              <span class="text-[10px] font-extrabold uppercase text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded">Event Secretary</span>
+              <h4 class="font-bold text-slate-900 text-sm mt-1">R. Priyadharshini</h4>
+              <p class="text-xs text-slate-600">Final Year, EIE</p>
+              <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 90123 45678</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- =================================================================== -->
+    <!-- FLOATING LIQUID GLASS BOTTOM NAVBAR DOCK -->
+    <!-- =================================================================== -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-auto px-2">
+      <div class="liquid-glass-nav px-3 py-2.5 rounded-full flex items-center gap-2 sm:gap-3 shadow-2xl animate-border-pulse">
+        
+        <!-- Home Page Nav Button -->
+        <button onclick="navigateTo('home')" id="nav-home" class="nav-btn active group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-600 text-white shadow-lg">
+          <i class="ph-bold ph-house text-base"></i>
+          <span>Home</span>
+        </button>
+
+        <!-- Events Page Nav Button -->
+        <button onclick="navigateTo('events')" id="nav-events" class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
+          <i class="ph-bold ph-lightning text-base"></i>
+          <span>Events</span>
+        </button>
+
+        <!-- About Page Nav Button -->
+        <button onclick="navigateTo('about')" id="nav-about" class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
+          <i class="ph-bold ph-info text-base"></i>
+          <span>About</span>
+        </button>
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- EVENT DETAIL MODAL (LIQUID GLASS) -->
+  <!-- =================================================================== -->
+  <div id="event-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md transition-opacity">
+    <div class="relative w-full max-w-2xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <!-- Dynamic Content Container -->
+      <div id="modal-content" class="space-y-6">
+        <!-- Filled via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- GOOGLE FORM MANAGER MODAL (LIQUID GLASS BACKEND) -->
+  <!-- =================================================================== -->
+  <div id="form-manager-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md">
+    <div class="relative w-full max-w-3xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
+      
+      <button onclick="closeFormManagerModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <div class="space-y-5">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-2xl liquid-glass-pill text-purple-700 flex items-center justify-center text-2xl font-bold">
+            <i class="ph-bold ph-google-logo"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold font-display text-slate-900">Google Forms Registration Center</h3>
+            <p class="text-xs text-slate-600">Register directly for SENSONCIS '26 or manage backend Google Form URLs</p>
+          </div>
+        </div>
+
+        <!-- Form Links Selector -->
+        <div class="p-5 rounded-2xl liquid-glass-pill space-y-4">
+          <label class="block text-xs font-extrabold uppercase text-purple-900">Select Event to Register / Open Form:</label>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <select id="form-select" class="liquid-glass-input px-4 py-2.5 rounded-xl text-xs font-bold text-slate-800">
+              <option value="main">Main Symposium Registration Form (All Events)</option>
+              <option value="bot-blitz">1. Bot Blitz (Roborace)</option>
+              <option value="code-debug">2. CODE DEBUG CONSOLE (Coding)</option>
+              <option value="tech-transmit">3. TechTransmit (Paper Presentation)</option>
+              <option value="techora">4. TECHORA (Project Presentation)</option>
+              <option value="jumble-jam">5. Jumble Jam (Non-Tech)</option>
+              <option value="memory-morph">6. MEMORY MORPH (Non-Tech)</option>
+              <option value="recall-rush">7. Recall Rush (Non-Tech)</option>
+              <option value="pick-unleash">8. Pick and unleash (Non-Tech)</option>
+              <option value="ws-node-red">9. Workshop on Node-RED</option>
+              <option value="ws-plc">10. Workshop on PLC</option>
+            </select>
+
+            <button onclick="launchForm()" class="liquid-glass-btn-primary py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+              <i class="ph-bold ph-arrow-square-out text-base"></i>
+              <span>Launch Google Form in New Tab</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Embedded Form Container Placeholder -->
+        <div id="embedded-form-container" class="rounded-2xl liquid-glass-pill p-6 text-center space-y-3">
+          <i class="ph-bold ph-note-pencil text-4xl text-purple-600"></i>
+          <h4 class="font-bold text-slate-900 text-base">Direct Registration Link Ready</h4>
+          <p class="text-xs text-slate-600 max-w-md mx-auto">
+            Click launch above to open your Google Form. Organizers can configure custom Google Form endpoints in the setting below.
+          </p>
+          <div class="pt-2">
+            <button onclick="launchForm()" class="liquid-glass-btn-secondary px-6 py-2.5 rounded-xl font-bold text-xs">
+              Open Selected Google Form
+            </button>
+          </div>
+        </div>
+
+        <!-- Organizer Google Form URL Configurator -->
+        <details class="p-4 rounded-2xl liquid-glass-pill text-xs text-slate-700">
+          <summary class="font-bold text-purple-950 cursor-pointer flex items-center gap-2">
+            <i class="ph-bold ph-wrench text-base text-purple-700"></i>
+            <span>Organizer Settings: Update Google Form URL Endpoint</span>
+          </summary>
+          <div class="mt-4 space-y-3 pt-2 border-t border-purple-200">
+            <p class="text-[11px] text-slate-600">Paste your live Google Form shareable link below to bind it to the entire portal:</p>
+            <div>
+              <label class="block font-bold mb-1 text-slate-800">Target Google Form URL:</label>
+              <input type="url" id="form-url-input" placeholder="https://docs.google.com/forms/d/e/.../viewform" class="liquid-glass-input w-full px-3.5 py-2 rounded-xl text-xs font-mono" />
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="saveCustomFormUrl()" class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-colors shadow-sm">
+                Save Google Form Endpoint
+              </button>
+              <span id="save-status" class="text-xs text-emerald-800 font-extrabold hidden">Saved Successfully!</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       1. DATA STRUCTURE: ALL 10 SYMPOSIUM EVENTS & WORKSHOPS
+       ========================================================================== */
+    const SYMPOSIUM_DATA = {
+      // TECHNICAL EVENTS
+      'tech-transmit': {
+        id: 'tech-transmit',
+        category: 'tech',
+        title: 'TechTransmit (Paper Presentation)',
+        badge: 'Technical',
+        icon: 'ph-article',
+        iconColor: 'bg-blue-100 text-blue-800',
+        timing: '10:30 AM - 01:00 PM',
+        venue: 'Seminar Hall A',
+        teamSize: '1 - 3 Members',
+        prize: '₹7,000 Cash Prize + Certificate',
+        description: 'Present original research papers on advanced themes like Smart Instrumentation, IoT in Automation, Biomedical Sensing, Robotics, AI/ML in Control Systems, and Renewable Energy.',
+        rules: [
+          'Abstract submission required prior to event date.',
+          'Presentation time: 7 minutes for presentation + 3 minutes Q&A.',
+          'PPT template must follow standard IEEE slide format.',
+          'Bring hard copy abstract and soft copy presentation on pendrive.'
+        ],
+        contacts: 'M. Arun (+91 98765 33333)'
+      },
+      'techora': {
+        id: 'techora',
+        category: 'tech',
+        title: 'TECHORA (Project Presentation)',
+        badge: 'Technical',
+        icon: 'ph-presentation-chart',
+        iconColor: 'bg-violet-100 text-violet-800',
+        timing: '10:30 AM - 01:00 PM',
+        venue: 'EIE Project Lab',
+        teamSize: '2 - 4 Members',
+        prize: '₹8,000 Cash Prize',
+        description: 'Demonstrate working hardware prototypes or industrial software projects solving real-world engineering and instrumentation challenges.',
+        rules: [
+          'Working prototype model is mandatory for evaluation.',
+          'Teams must bring their own components, power strips, and laptop.',
+          'Judging criteria includes innovation, practical feasibility, working accuracy, and Q&A defense.'
+        ],
+        contacts: 'P. Karthik (+91 98765 44444)'
+      },
+      'code-debug': {
+        id: 'code-debug',
+        category: 'tech',
+        title: 'CODE DEBUG CONSOLE',
+        badge: 'Technical',
+        icon: 'ph-code',
+        iconColor: 'bg-indigo-100 text-indigo-800',
+        timing: '11:00 AM - 01:00 PM',
+        venue: 'Computer Lab 2',
+        teamSize: '1 - 2 Members',
+        prize: '₹6,000 Cash Prize',
+        description: 'A high-intensity coding and debugging challenge testing logic, syntax accuracy, algorithm optimization, and bug hunting speed in C, C++, Python, or Embedded C.',
+        rules: [
+          'Round 1: Rapid multiple choice bug diagnosis & output prediction.',
+          'Round 2: Live debugging on corrupted scripts within time limit.',
+          'Internet access or external AI tools are strictly prohibited during competition.',
+          'Judges evaluate based on accuracy, execution speed, and clean syntax.'
+        ],
+        contacts: 'S. Divya (+91 98765 22222)'
+      },
+      'bot-blitz': {
+        id: 'bot-blitz',
+        category: 'tech',
+        title: 'Bot Blitz (Roborace)',
+        badge: 'Technical',
+        icon: 'ph-robot',
+        iconColor: 'bg-purple-100 text-purple-800',
+        timing: '10:30 AM - 01:00 PM',
+        venue: 'Main Ground Arena',
+        teamSize: '2 - 4 Members',
+        prize: '₹8,000 Cash Prize + Trophy',
+        description: 'Conquer a challenging obstacle track filled with speed bumps, hair-pin turns, ramps, and narrow bridges with your custom-designed mobile robot.',
+        rules: [
+          'Bot dimensions must not exceed 30cm x 30cm x 30cm.',
+          'Bots can be wireless or wired remote controlled.',
+          'Maximum supply voltage limit is 24V DC.',
+          'Time trials determine qualification for the championship round.',
+          'Track disturbances or stepping inside the track incur penalty points.'
+        ],
+        contacts: 'K. Ramesh (+91 98765 11111)'
+      },
+
+      // NON-TECHNICAL EVENTS
+      'jumble-jam': {
+        id: 'jumble-jam',
+        category: 'nontech',
+        title: 'Jumble Jam',
+        badge: 'Non-Tech',
+        icon: 'ph-text-columns',
+        iconColor: 'bg-amber-100 text-amber-800',
+        timing: '02:00 PM - 03:30 PM',
+        venue: 'EIE LH-1',
+        teamSize: '2 Members',
+        prize: '₹3,000 Cash Prize',
+        description: 'Unscramble complex technical and general phrases, solve anagram puzzles, and decode cryptic word chains in a fast-paced battle of words!',
+        rules: [
+          'Multiple elimination rounds based on speed and accuracy.',
+          'No digital devices allowed during rounds.',
+          'Tie-breakers decided by sudden-death rapid fire unscrambling.'
+        ],
+        contacts: 'V. Sneha (+91 98765 55555)'
+      },
+      'memory-morph': {
+        id: 'memory-morph',
+        category: 'nontech',
+        title: 'MEMORY MORPH',
+        badge: 'Non-Tech',
+        icon: 'ph-brain',
+        iconColor: 'bg-pink-100 text-pink-800',
+        timing: '02:00 PM - 03:30 PM',
+        venue: 'EIE LH-2',
+        teamSize: '1 - 2 Members',
+        prize: '₹3,000 Cash Prize',
+        description: 'A mind-bending visual challenge where patterns, morphing images, and complex sequences are shown briefly and must be recalled accurately.',
+        rules: [
+          'Participants observe changing sequence slides for 15 seconds.',
+          'Recall morph sequence order and specific object details.',
+          'Speed and exact sequence match score highest points.'
+        ],
+        contacts: 'A. Naveen (+91 98765 66666)'
+      },
+      'recall-rush': {
+        id: 'recall-rush',
+        category: 'nontech',
+        title: 'Recall Rush',
+        badge: 'Non-Tech',
+        icon: 'ph-clock-counter-clockwise',
+        iconColor: 'bg-rose-100 text-rose-800',
+        timing: '02:30 PM - 04:00 PM',
+        venue: 'Seminar Hall B',
+        teamSize: '2 Members',
+        prize: '₹3,000 Cash Prize',
+        description: 'Examine a complex laboratory setup with dozens of instrumentation components for 60 seconds, then recall and list maximum accurate details under clock pressure!',
+        rules: [
+          'Observation time limit: strictly 60 seconds.',
+          'Writing time limit: 3 minutes.',
+          'Bonus points for exact technical names of instruments identified.'
+        ],
+        contacts: 'G. Gokul (+91 98765 77777)'
+      },
+      'pick-unleash': {
+        id: 'pick-unleash',
+        category: 'nontech',
+        title: 'Pick and unleash',
+        badge: 'Non-Tech',
+        icon: 'ph-sparkle',
+        iconColor: 'bg-orange-100 text-orange-800',
+        timing: '02:30 PM - 04:00 PM',
+        venue: 'Drawing Hall',
+        teamSize: '1 Member',
+        prize: '₹3,000 Cash Prize',
+        description: 'Pick an unexpected object or spontaneous topic from the mystery box and pitch an innovative idea, comedic monologue, or solution on the spot!',
+        rules: [
+          'Preparation time: 2 minutes after picking topic.',
+          'Performance time: 3 minutes max.',
+          'Evaluated on creativity, humor, confidence, and spontaneous thinking.'
+        ],
+        contacts: 'T. Bhavana (+91 98765 88888)'
+      },
+
+      // WORKSHOPS
+      'ws-plc': {
+        id: 'ws-plc',
+        category: 'workshop',
+        title: 'Workshop on PLC',
+        badge: 'Workshop',
+        icon: 'ph-circuit-board',
+        iconColor: 'bg-teal-100 text-teal-800',
+        timing: '10:30 AM - 01:00 PM',
+        venue: 'PLC & Automation Lab',
+        teamSize: 'Individual Entry',
+        prize: 'Hands-on Training + Certificate',
+        description: 'Comprehensive industrial workshop on Programmable Logic Controllers (PLC). Hands-on training on ladder logic programming, sensor interfacing, and SCADA basics.',
+        rules: [
+          'Practical experiments conducted on Siemens / Allen-Bradley PLC kits.',
+          'Covers digital/analog I/O, timers, counters, and industrial motor control.',
+          'Hardcopy certificate awarded.'
+        ],
+        contacts: 'E. Hariharan (+91 98765 00000)'
+      },
+      'ws-node-red': {
+        id: 'ws-node-red',
+        category: 'workshop',
+        title: 'Workshop on Node-RED',
+        badge: 'Workshop',
+        icon: 'ph-flow-arrow',
+        iconColor: 'bg-emerald-100 text-emerald-800',
+        timing: '10:30 AM - 01:00 PM',
+        venue: 'IoT & Embedded Lab',
+        teamSize: 'Individual Entry',
+        prize: 'Hands-on Training + Certificate',
+        description: 'Master flow-based programming for IoT applications using Node-RED. Learn to wire hardware devices, APIs, MQTT brokers, and create real-time web dashboards.',
+        rules: [
+          'Participants are requested to bring their laptops.',
+          'Software setup guide will be provided prior to session.',
+          'Official hardcopy certification awarded upon completion.'
+        ],
+        contacts: 'R. Sanjay (+91 98765 99999)'
+      }
+    };
+
+    /* ==========================================================================
+       2. INTERACTIVE LIQUID CANVAS BACKGROUND (Ripples, Disturbance & Particles)
+       ========================================================================== */
+    const canvas = document.getElementById('liquid-bg');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let ripples = [];
+    let particles = [];
+
+    // Liquid Gradient Blobs (Shades of Light Purple, Light Violet, Light Mint)
+    const blobs = [
+      { x: 0.18, y: 0.25, radius: 320, color: 'rgba(233, 213, 255, 0.85)', vx: 0.00025, vy: 0.0002 },  // Light Purple
+      { x: 0.82, y: 0.22, radius: 360, color: 'rgba(221, 214, 254, 0.8)', vx: -0.0002, vy: 0.0003 },  // Light Violet
+      { x: 0.48, y: 0.82, radius: 380, color: 'rgba(209, 250, 229, 0.85)', vx: 0.0003, vy: -0.00025 },// Light Mint Green
+      { x: 0.88, y: 0.78, radius: 300, color: 'rgba(243, 232, 255, 0.85)', vx: -0.00025, vy: -0.0002 }
+    ];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    }
+
+    // Initialize subtle floating glass dust particles
+    function initParticles() {
+      particles = [];
+      const count = Math.floor(width / 35);
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 3 + 1,
+          alpha: Math.random() * 0.5 + 0.2,
+          vy: -Math.random() * 0.4 - 0.1,
+          vx: (Math.random() - 0.5) * 0.3
+        });
+      }
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Touch & Cursor Liquid Disturbance Handlers
+    function spawnLiquidDisturbance(x, y) {
+      // Spawn liquid ripple
+      ripples.push({
+        x: x,
+        y: y,
+        radius: 8,
+        maxRadius: Math.random() * 110 + 90,
+        alpha: 0.85,
+        color: Math.random() > 0.5 ? 'rgba(167, 139, 250, ' : 'rgba(52, 211, 153, '
+      });
+      if (ripples.length > 30) ripples.shift();
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.55) {
+        spawnLiquidDisturbance(e.clientX, e.clientY);
+      }
+    });
+
+    window.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        spawnLiquidDisturbance(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        spawnLiquidDisturbance(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    function animateLiquidEngine() {
+      ctx.clearRect(0, 0, width, height);
+
+      // 1. Render Fluid Gradient Blobs
+      blobs.forEach(b => {
+        b.x += b.vx;
+        b.y += b.vy;
+
+        if (b.x < 0.08 || b.x > 0.92) b.vx *= -1;
+        if (b.y < 0.08 || b.y > 0.92) b.vy *= -1;
+
+        const bx = b.x * width;
+        const by = b.y * height;
+
+        const grad = ctx.createRadialGradient(bx, by, 0, bx, by, b.radius);
+        grad.addColorStop(0, b.color);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(bx, by, b.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 2. Render Floating Particles
+      particles.forEach(p => {
+        p.y += p.vy;
+        p.x += p.vx;
+
+        if (p.y < 0) p.y = height;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 3. Render Interactive Touch/Cursor Disturbances
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const r = ripples[i];
+        r.radius += 2.8;
+        r.alpha -= 0.018;
+
+        if (r.alpha <= 0 || r.radius >= r.maxRadius) {
+          ripples.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = r.color + r.alpha + ')';
+        ctx.lineWidth = 3.5;
+        ctx.shadowColor = 'rgba(139, 92, 246, 0.45)';
+        ctx.shadowBlur = 14;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      requestAnimationFrame(animateLiquidEngine);
+    }
+
+    animateLiquidEngine();
+
+    /* ==========================================================================
+       3. SEPARATE PAGE ROUTER SYSTEM (HOME / EVENTS / ABOUT)
+       ========================================================================== */
+    function navigateTo(pageId) {
+      // Hide all page views
+      document.querySelectorAll('.page-view').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      // Activate selected page view
+      const target = document.getElementById(`page-${pageId}`);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      // Update bottom navbar active styling
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-purple-700', 'via-indigo-600', 'to-purple-600', 'text-white', 'shadow-lg');
+        btn.classList.add('text-slate-800');
+      });
+
+      const activeNav = document.getElementById(`nav-${pageId}`);
+      if (activeNav) {
+        activeNav.classList.add('active', 'bg-gradient-to-r', 'from-purple-700', 'via-indigo-600', 'to-purple-600', 'text-white', 'shadow-lg');
+        activeNav.classList.remove('text-slate-800');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ==========================================================================
+       4. RENDER EVENTS GRID & CATEGORY FILTERS
+       ========================================================================== */
+    function renderEventsGrid(filterCategory = 'all') {
+      const grid = document.getElementById('events-grid');
+      grid.innerHTML = '';
+
+      Object.values(SYMPOSIUM_DATA).forEach(item => {
+        if (filterCategory !== 'all' && item.category !== filterCategory) return;
+
+        const card = document.createElement('div');
+        card.className = 'p-6 rounded-3xl liquid-glass-card space-y-4 flex flex-col justify-between';
+        
+        card.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-2xl font-bold shadow-sm">
+                <i class="ph-bold ${item.icon}"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${
+                item.category === 'tech' ? 'bg-purple-100 text-purple-900 border border-purple-200' :
+                item.category === 'nontech' ? 'bg-amber-100 text-amber-900 border border-amber-200' :
+                'bg-emerald-100 text-emerald-900 border border-emerald-200'
+              }">
+                ${item.badge}
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 font-display">${item.title}</h3>
+              <p class="text-xs text-slate-600 mt-1.5 flex items-center gap-1.5 font-medium">
+                <i class="ph-bold ph-clock text-purple-600"></i> ${item.timing}
+              </p>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed line-clamp-3">
+              ${item.description}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-purple-200/60 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[11px] font-bold text-purple-950 bg-purple-100/80 px-3 py-1 rounded-lg border border-purple-200">
+                ${item.teamSize}
+              </span>
+
+              <button onclick="showEventDetails('${item.id}')" class="liquid-glass-btn-secondary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1">
+                <span>Details</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </button>
+            </div>
+
+            <button onclick="registerForEvent('${item.id}')" class="w-full liquid-glass-btn-primary py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+              <i class="ph-bold ph-paper-plane-tilt"></i>
+              <span>Register Now</span>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function filterEvents(category) {
+      document.querySelectorAll('.event-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-purple-700', 'text-white', 'shadow-md');
+        btn.classList.add('text-slate-700');
+      });
+
+      const activeBtn = document.getElementById(`btn-tab-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-purple-700', 'text-white', 'shadow-md');
+        activeBtn.classList.remove('text-slate-700');
+      }
+
+      renderEventsGrid(category);
+    }
+
+    /* ==========================================================================
+       5. EVENT DETAILS MODAL
+       ========================================================================== */
+    function showEventDetails(eventId) {
+      const item = SYMPOSIUM_DATA[eventId];
+      if (!item) return;
+
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-3xl font-bold shadow-md">
+            <i class="ph-bold ${item.icon}"></i>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
+              ${item.badge}
+            </span>
+            <h3 class="text-2xl font-extrabold font-display text-slate-900 mt-1">${item.title}</h3>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-2xl liquid-glass-pill text-xs">
+          <div>
+            <span class="block text-[10px] text-slate-500 font-bold uppercase">Timing</span>
+            <span class="font-bold text-slate-900">${item.timing}</span>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-500 font-bold uppercase">Venue</span>
+            <span class="font-bold text-slate-900">${item.venue}</span>
+          </div>
+          <div>
+            <span class="block text-[10px] text-slate-500 font-bold uppercase">Team Format</span>
+            <span class="font-bold text-purple-800">${item.teamSize}</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 text-sm">Description</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">${item.description}</p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 text-sm">Rules & Guidelines</h4>
+          <ul class="list-disc list-inside space-y-1 text-xs text-slate-600">
+            ${item.rules.map(r => `<li>${r}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="p-3.5 rounded-xl liquid-glass-pill text-xs flex justify-between items-center flex-wrap gap-2">
+          <span class="font-bold text-purple-950">Coordinator: ${item.contacts}</span>
+          <span class="font-extrabold text-emerald-800">${item.prize}</span>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl liquid-glass-btn-secondary text-xs font-bold">
+            Close
+          </button>
+          <button onclick="registerForEvent('${item.id}')" class="liquid-glass-btn-primary px-6 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2">
+            <i class="ph-bold ph-paper-plane-tilt"></i>
+            <span>Register Now</span>
+          </button>
+        </div>
+      `;
+
+      document.getElementById('event-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('event-modal').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       6. GOOGLE FORMS INTEGRATION MANAGER
+       ========================================================================== */
+    let googleFormUrls = {
+      main: 'https://docs.google.com/forms/d/e/1FAIpQLSc_EXAMPLE_SENSONCIS_2026/viewform',
+      'jumble-jam': 'https://forms.gle/Q1MHpbguLRN2cefN8',
+      'tech-transmit': 'https://forms.gle/DQM6HNniEKHQvYih9',
+      'techora': 'https://forms.gle/QbvrDfYVaEUuMk7q7',
+      'recall-rush': 'https://forms.gle/Gg89N4LYNifFs3s96',
+      'code-debug': 'https://forms.gle/xiBPy6FWzY5uLKZ18',
+      'bot-blitz': 'https://forms.gle/vFysocMGbtWG3sdA6',
+      'ws-node-red': 'https://forms.gle/dQzjZQbe7L9aBk8Y9',
+      'memory-morph': 'https://forms.gle/8my3WavktSPRHzzn7',
+      'pick-unleash': 'https://forms.gle/7c5rnDohZzFAsMWd9',
+      'ws-plc': 'https://forms.gle/dQzjZQbe7L9aBk8Y9'
+    };
+
+    const savedUrl = localStorage.getItem('sensoncis_form_url');
+    if (savedUrl) {
+      googleFormUrls.main = savedUrl;
+    }
+
+    function openFormManagerModal(eventId = 'main') {
+      closeModal();
+      const modal = document.getElementById('form-manager-modal');
+      const select = document.getElementById('form-select');
+      
+      if (select && eventId) {
+        select.value = SYMPOSIUM_DATA[eventId] ? eventId : 'main';
+      }
+
+      document.getElementById('form-url-input').value = googleFormUrls.main;
+      modal.classList.remove('hidden');
+    }
+
+    function closeFormManagerModal() {
+      document.getElementById('form-manager-modal').classList.add('hidden');
+    }
+
+    function launchForm() {
+      const selected = document.getElementById('form-select').value;
+      let targetUrl;
+
+      // Use per-event URL if available, otherwise fall back to main form
+      if (selected !== 'main' && googleFormUrls[selected]) {
+        targetUrl = googleFormUrls[selected];
+      } else if (selected !== 'main' && SYMPOSIUM_DATA[selected]) {
+        targetUrl = googleFormUrls.main;
+        const eventName = encodeURIComponent(SYMPOSIUM_DATA[selected].title);
+        targetUrl += `?entry.123456789=${eventName}`;
+      } else {
+        targetUrl = googleFormUrls.main;
+      }
+
+      window.open(targetUrl, '_blank');
+    }
+
+    function registerForEvent(eventId) {
+      if (googleFormUrls[eventId]) {
+        window.open(googleFormUrls[eventId], '_blank');
+      } else {
+        openFormManagerModal(eventId);
+      }
+    }
+
+    function saveCustomFormUrl() {
+      const input = document.getElementById('form-url-input').value.trim();
+      if (input) {
+        googleFormUrls.main = input;
+        localStorage.setItem('sensoncis_form_url', input);
+        const status = document.getElementById('save-status');
+        status.classList.remove('hidden');
+        setTimeout(() => status.classList.add('hidden'), 3000);
+      }
+    }
+
+    /* ==========================================================================
+       7. COUNTDOWN TIMER TO SEPTEMBER 22, 2026
+       ========================================================================== */
+    function updateCountdown() {
+      const targetDate = new Date('September 22, 2026 09:00:00').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').innerText = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').innerText = String(secs).padStart(2, '0');
+      }
+    }
+
+    // Initialize on Window Load
+    window.onload = function() {
+      renderEventsGrid('all');
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    };
+  </script>
+</body>
+</html>
