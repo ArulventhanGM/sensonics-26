@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SENSONCIS '26 | National Level Technical Symposium | EIE</title>
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Phosphor Icons CDN -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -63,14 +66,14 @@
 
   <style>
     /* Absolute Liquid Glass Core Classes */
-    
+
     /* 1. Enhanced Floating Liquid Glass Dock (Navbar) */
     .liquid-glass-nav {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(245, 243, 255, 0.45) 50%, rgba(236, 253, 245, 0.55) 100%);
       backdrop-filter: blur(28px) saturate(210%);
       -webkit-backdrop-filter: blur(28px) saturate(210%);
       border: 1.5px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 
+      box-shadow:
         0 20px 50px -10px rgba(109, 40, 217, 0.18),
         0 10px 20px -5px rgba(16, 185, 129, 0.15),
         inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
@@ -84,7 +87,7 @@
       backdrop-filter: blur(22px) saturate(190%);
       -webkit-backdrop-filter: blur(22px) saturate(190%);
       border: 1.5px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 
+      box-shadow:
         0 16px 36px -8px rgba(124, 58, 237, 0.1),
         0 6px 16px -4px rgba(16, 185, 129, 0.08),
         inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
@@ -108,7 +111,7 @@
       transform: translateY(-6px) scale(1.012);
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.52) 100%);
       border-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 
+      box-shadow:
         0 24px 48px -10px rgba(124, 58, 237, 0.22),
         0 12px 24px -6px rgba(16, 185, 129, 0.2),
         inset 0 2px 3px 0 rgba(255, 255, 255, 1);
@@ -122,7 +125,7 @@
       color: #ffffff;
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 
+      box-shadow:
         0 10px 25px -5px rgba(124, 58, 237, 0.4),
         inset 0 1px 2px 0 rgba(255, 255, 255, 0.8);
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -130,7 +133,7 @@
 
     .liquid-glass-btn-primary:hover {
       transform: translateY(-2.5px) scale(1.02);
-      box-shadow: 
+      box-shadow:
         0 16px 32px -4px rgba(16, 185, 129, 0.5),
         0 0 20px 2px rgba(167, 139, 250, 0.4),
         inset 0 1px 3px 0 rgba(255, 255, 255, 1);
@@ -143,7 +146,7 @@
       backdrop-filter: blur(16px);
       border: 1.5px solid rgba(255, 255, 255, 0.85);
       color: #4c1d95;
-      box-shadow: 
+      box-shadow:
         0 8px 20px -4px rgba(124, 58, 237, 0.12),
         inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
       transition: all 0.3s ease;
@@ -154,7 +157,7 @@
       border-color: rgba(255, 255, 255, 1);
       color: #2e1065;
       transform: translateY(-2px);
-      box-shadow: 
+      box-shadow:
         0 12px 28px -4px rgba(16, 185, 129, 0.25),
         inset 0 1px 2px 0 rgba(255, 255, 255, 1);
     }
@@ -165,7 +168,7 @@
       backdrop-filter: blur(20px) saturate(200%);
       -webkit-backdrop-filter: blur(20px) saturate(200%);
       border: 1.5px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 
+      box-shadow:
         0 10px 25px rgba(109, 40, 217, 0.08),
         inset 0 1px 2px rgba(255, 255, 255, 0.95);
     }
@@ -204,21 +207,25 @@
     ::-webkit-scrollbar {
       width: 9px;
     }
+
     ::-webkit-scrollbar-track {
       background: rgba(243, 232, 255, 0.2);
     }
+
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(180deg, rgba(167, 139, 250, 0.6), rgba(52, 211, 153, 0.6));
       border-radius: 9999px;
       border: 2px solid rgba(255, 255, 255, 0.5);
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: linear-gradient(180deg, rgba(139, 92, 246, 0.8), rgba(16, 185, 129, 0.8));
     }
   </style>
 </head>
 
-<body class="h-full bg-slate-100 font-sans text-slate-800 antialiased selection:bg-purple-200 selection:text-purple-900 overflow-x-hidden relative">
+<body
+  class="h-full bg-slate-100 font-sans text-slate-800 antialiased selection:bg-purple-200 selection:text-purple-900 overflow-x-hidden relative">
 
   <!-- Interactive Liquid Canvas Background (Ripples, Disturbance & Soft Physics) -->
   <canvas id="liquid-bg" class="fixed inset-0 w-full h-full pointer-events-auto z-0"></canvas>
@@ -229,12 +236,15 @@
     <!-- Liquid Glass Header Banner -->
     <header class="w-full px-4 pt-6 pb-2 max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3.5">
-        <div class="w-13 h-13 p-2.5 rounded-2xl liquid-glass-pill flex items-center justify-center text-purple-700 shadow-lg transform hover:rotate-6 transition-transform">
+        <div
+          class="w-13 h-13 p-2.5 rounded-2xl liquid-glass-pill flex items-center justify-center text-purple-700 shadow-lg transform hover:rotate-6 transition-transform">
           <i class="ph-bold ph-cpu text-2xl"></i>
         </div>
         <div>
-          <span class="text-[11px] font-bold tracking-widest text-purple-800 uppercase block">Dept. of EIE Presents</span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-800 via-indigo-700 to-emerald-600">
+          <span class="text-[11px] font-bold tracking-widest text-purple-800 uppercase block">Dept. of EIE
+            Presents</span>
+          <h1
+            class="text-2xl sm:text-3xl font-extrabold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-800 via-indigo-700 to-emerald-600">
             SENSONCIS '26
           </h1>
         </div>
@@ -256,36 +266,47 @@
       <!-- PAGE 1: HOME PAGE VIEW -->
       <!-- =================================================================== -->
       <section id="page-home" class="page-view active space-y-12">
-        
+
         <!-- Hero Liquid Glass Banner -->
-        <div class="relative rounded-3xl p-8 sm:p-12 liquid-glass-card overflow-hidden text-center sm:text-left flex flex-col lg:flex-row items-center justify-between gap-10">
-          
+        <div
+          class="relative rounded-3xl p-8 sm:p-12 liquid-glass-card overflow-hidden text-center sm:text-left flex flex-col lg:flex-row items-center justify-between gap-10">
+
           <!-- Background Atmospheric Ambient Glass Glows -->
-          <div class="absolute -top-32 -left-32 w-80 h-80 bg-purple-300/40 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-300/40 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -top-32 -left-32 w-80 h-80 bg-purple-300/40 rounded-full blur-3xl pointer-events-none">
+          </div>
+          <div
+            class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-300/40 rounded-full blur-3xl pointer-events-none">
+          </div>
 
           <div class="max-w-2xl space-y-6 relative z-10">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold uppercase tracking-wider border border-white/90 shadow-sm">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold uppercase tracking-wider border border-white/90 shadow-sm">
               <i class="ph-fill ph-calendar-blank text-purple-600 text-sm"></i>
               September 22, 2026
             </div>
-            
+
             <h2 class="text-4xl sm:text-6xl font-extrabold font-display text-slate-900 leading-tight">
-              Ignite Innovations in <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-indigo-600 to-emerald-500">Sensing & Control</span>
+              Ignite Innovations in <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-indigo-600 to-emerald-500">Sensing
+                & Control</span>
             </h2>
 
             <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
-              Experience the premier national-level technical symposium hosted by the Department of Electronics & Instrumentation Engineering. Engage in flagship technical competitions, non-technical challenges, and hands-on industrial workshops in an interactive liquid interface.
+              Experience the premier national-level technical symposium hosted by the Department of Electronics &
+              Instrumentation Engineering. Engage in flagship technical competitions, non-technical challenges, and
+              hands-on industrial workshops in an interactive liquid interface.
             </p>
 
             <!-- CTA Buttons -->
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-2">
-              <button onclick="navigateTo('events')" class="liquid-glass-btn-primary px-8 py-3.5 rounded-2xl font-bold text-sm tracking-wide flex items-center gap-2">
+              <button onclick="navigateTo('events')"
+                class="liquid-glass-btn-primary px-8 py-3.5 rounded-2xl font-bold text-sm tracking-wide flex items-center gap-2">
                 <span>Explore All Events</span>
                 <i class="ph-bold ph-arrow-right text-base"></i>
               </button>
 
-              <button onclick="openFormManagerModal()" class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2">
+              <button onclick="openFormManagerModal()"
+                class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2">
                 <i class="ph-bold ph-note-pencil text-base text-purple-600"></i>
                 <span>Register via Google Forms</span>
               </button>
@@ -294,12 +315,14 @@
 
           <!-- Countdown Glass Tile -->
           <div class="w-full lg:w-auto relative z-10">
-            <div class="p-6 rounded-3xl liquid-glass-card border border-white text-center space-y-5 shadow-2xl max-w-sm mx-auto">
-              <div class="text-xs font-extrabold text-purple-800 uppercase tracking-widest flex items-center justify-center gap-1.5">
+            <div
+              class="p-6 rounded-3xl liquid-glass-card border border-white text-center space-y-5 shadow-2xl max-w-sm mx-auto">
+              <div
+                class="text-xs font-extrabold text-purple-800 uppercase tracking-widest flex items-center justify-center gap-1.5">
                 <i class="ph-bold ph-timer text-xl text-purple-600"></i>
                 Event Countdown
               </div>
-              
+
               <div id="countdown-timer" class="grid grid-cols-4 gap-2 font-display">
                 <div class="liquid-glass-pill p-3 rounded-2xl text-center">
                   <span id="cd-days" class="block text-2xl font-extrabold text-purple-950">00</span>
@@ -353,33 +376,39 @@
       <!-- PAGE 2: EVENTS PAGE VIEW -->
       <!-- =================================================================== -->
       <section id="page-events" class="page-view space-y-8">
-        
+
         <!-- Header & Liquid Glass Category Tabs -->
-        <div class="p-6 sm:p-8 rounded-3xl liquid-glass-card flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+          class="p-6 sm:p-8 rounded-3xl liquid-glass-card flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 class="text-3xl font-extrabold font-display text-slate-900">Events & Workshops</h2>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">Explore all 10 events across Technical, Non-Technical, and Workshop categories.</p>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">Explore all 10 events across Technical, Non-Technical, and
+              Workshop categories.</p>
           </div>
 
           <!-- Glass Pill Filter Bar -->
           <div class="flex flex-wrap items-center gap-2 p-2 rounded-2xl liquid-glass-pill">
-            <button onclick="filterEvents('all')" id="btn-tab-all" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-purple-700 text-white shadow-md">
+            <button onclick="filterEvents('all')" id="btn-tab-all"
+              class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-purple-700 text-white shadow-md">
               All (10)
             </button>
-            <button onclick="filterEvents('tech')" id="btn-tab-tech" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
+            <button onclick="filterEvents('tech')" id="btn-tab-tech"
+              class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
               Technical (4)
             </button>
-            <button onclick="filterEvents('nontech')" id="btn-tab-nontech" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
+            <button onclick="filterEvents('nontech')" id="btn-tab-nontech"
+              class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-purple-800">
               Non-Tech (4)
             </button>
-            <button onclick="filterEvents('workshop')" id="btn-tab-workshop" class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-emerald-800">
+            <button onclick="filterEvents('workshop')" id="btn-tab-workshop"
+              class="event-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-emerald-800">
               Workshops (2)
             </button>
           </div>
         </div>
 
         <!-- Dynamic Events Grid -->
-        <div id="events-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="events-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <!-- Dynamically populated via JavaScript -->
         </div>
       </section>
@@ -388,11 +417,13 @@
       <!-- PAGE 3: ABOUT PAGE VIEW -->
       <!-- =================================================================== -->
       <section id="page-about" class="page-view space-y-10">
-        
+
         <!-- Department Banner Glass Card -->
         <div class="p-8 sm:p-10 rounded-3xl liquid-glass-card space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-emerald-900 text-xs font-extrabold">
-            <i class="ph-bold ph-buildings text-emerald-600"></i> Department of Electronics & Instrumentation Engineering
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass-pill text-emerald-900 text-xs font-extrabold">
+            <i class="ph-bold ph-buildings text-emerald-600"></i> Department of Electronics & Instrumentation
+            Engineering
           </div>
 
           <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">
@@ -400,7 +431,11 @@
           </h2>
 
           <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
-            SENSONCIS is a premier National Level Technical Symposium organized annually by the Department of Electronics and Instrumentation Engineering. Designed to cultivate technological innovation, engineering excellence, and multi-disciplinary talent, SENSONCIS provides a dynamic platform for students across the nation to present innovative ideas, solve engineering challenges, and gain hands-on expertise in automation, sensing technology, and robotics.
+            SENSONCIS is a premier National Level Technical Symposium organized annually by the Department of
+            Electronics and Instrumentation Engineering. Designed to cultivate technological innovation, engineering
+            excellence, and multi-disciplinary talent, SENSONCIS provides a dynamic platform for students across the
+            nation to present innovative ideas, solve engineering challenges, and gain hands-on expertise in automation,
+            sensing technology, and robotics.
           </p>
 
           <div class="grid sm:grid-cols-3 gap-4 pt-4 border-t border-purple-200/60">
@@ -426,34 +461,39 @@
               <h3 class="text-2xl font-bold font-display text-slate-900">Symposium Schedule</h3>
               <p class="text-xs text-slate-600 mt-1">Full event itinerary for September 22, 2026</p>
             </div>
-            <span class="px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold">1-Day Event</span>
+            <span class="px-3.5 py-1.5 rounded-full liquid-glass-pill text-purple-900 text-xs font-extrabold">1-Day
+              Event</span>
           </div>
 
           <div class="relative border-l-2 border-purple-300/80 ml-4 space-y-6 pl-6 py-2">
             <!-- Venue -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-indigo-800 uppercase">Venue</span>
               <h4 class="font-bold text-slate-900 text-base">Maharaja Auditorium</h4>
             </div>
 
             <!-- 09:00 AM -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-purple-800 uppercase">09:00 AM</span>
               <h4 class="font-bold text-slate-900 text-base">Inauguration</h4>
             </div>
 
             <!-- 09:30 AM -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-purple-800 uppercase">09:30 AM</span>
               <h4 class="font-bold text-slate-900 text-base">Felicitation: Principal Address, HOD Address</h4>
             </div>
 
             <!-- 10:30 AM - TechTransmit & Workshops -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-emerald-800 uppercase">10:30 AM</span>
               <h4 class="font-bold text-slate-900 text-base">TechTransmit & PLC, Node-RED</h4>
               <p class="text-xs text-slate-600">Paper Presentation, Workshop</p>
@@ -461,7 +501,8 @@
 
             <!-- 10:30 AM - Techora -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-emerald-800 uppercase">10:30 AM</span>
               <h4 class="font-bold text-slate-900 text-base">Techora</h4>
               <p class="text-xs text-slate-600">Project Presentation</p>
@@ -469,7 +510,8 @@
 
             <!-- 10:45 AM - Code Debug Console -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-indigo-800 uppercase">10:45 AM</span>
               <h4 class="font-bold text-slate-900 text-base">Code Debug Console</h4>
               <p class="text-xs text-slate-600">Programming Challenge</p>
@@ -477,7 +519,8 @@
 
             <!-- 10:45 AM - Bot Blitz -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-indigo-800 uppercase">10:45 AM</span>
               <h4 class="font-bold text-slate-900 text-base">Bot Blitz</h4>
               <p class="text-xs text-slate-600">Robo Race</p>
@@ -485,49 +528,56 @@
 
             <!-- Lunch Break -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-amber-800 uppercase">12:15 PM - 01:15 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Lunch Break</h4>
             </div>
 
             <!-- 01:15 PM - Jumble Jam -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-purple-600 ring-4 ring-purple-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-purple-800 uppercase">01:15 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Jumble Jam</h4>
             </div>
 
             <!-- 02:00 PM - Memory Morph -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-pink-800 uppercase">02:00 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Memory Morph</h4>
             </div>
 
             <!-- 02:45 PM - Recall Rush -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-rose-500 ring-4 ring-rose-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-rose-500 ring-4 ring-rose-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-rose-800 uppercase">02:45 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Recall Rush</h4>
             </div>
 
             <!-- 03:30 PM - Pick and Unleash -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-orange-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-orange-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-orange-800 uppercase">03:30 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Pick and Unleash</h4>
             </div>
 
             <!-- 04:00 PM - Valedictory -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-emerald-800 uppercase">04:00 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Valedictory Function</h4>
             </div>
 
             <!-- 04:30 PM - Event Ends -->
             <div class="relative">
-              <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-500 ring-4 ring-slate-100 shadow-md"></span>
+              <span
+                class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-slate-500 ring-4 ring-slate-100 shadow-md"></span>
               <span class="text-xs font-extrabold text-slate-800 uppercase">04:30 PM</span>
               <h4 class="font-bold text-slate-900 text-base">Event Ends</h4>
             </div>
@@ -537,11 +587,12 @@
         <!-- Coordinators Directory Panel -->
         <div class="p-8 rounded-3xl liquid-glass-card space-y-6">
           <h3 class="text-2xl font-bold font-display text-slate-900">Symposium Coordinators</h3>
-          
+
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Faculty Coordinator -->
             <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
-              <span class="text-[10px] font-extrabold uppercase text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Staff Convener</span>
+              <span class="text-[10px] font-extrabold uppercase text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Staff
+                Convener</span>
               <h4 class="font-bold text-slate-900 text-sm mt-1">Dr. K. Arunkumar</h4>
               <p class="text-xs text-slate-600">Associate Professor, EIE</p>
               <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 98765 43210</p>
@@ -549,7 +600,9 @@
 
             <!-- Student Coordinator 1 -->
             <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
-              <span class="text-[10px] font-extrabold uppercase text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Student Chairman</span>
+              <span
+                class="text-[10px] font-extrabold uppercase text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Student
+                Chairman</span>
               <h4 class="font-bold text-slate-900 text-sm mt-1">S. Vigneshwaran</h4>
               <p class="text-xs text-slate-600">Final Year, EIE</p>
               <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 91234 56789</p>
@@ -557,7 +610,8 @@
 
             <!-- Student Coordinator 2 -->
             <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
-              <span class="text-[10px] font-extrabold uppercase text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded">Event Secretary</span>
+              <span class="text-[10px] font-extrabold uppercase text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded">Event
+                Secretary</span>
               <h4 class="font-bold text-slate-900 text-sm mt-1">R. Priyadharshini</h4>
               <p class="text-xs text-slate-600">Final Year, EIE</p>
               <p class="text-xs text-purple-800 font-bold mt-2"><i class="ph-bold ph-phone"></i> +91 90123 45678</p>
@@ -573,22 +627,26 @@
     <!-- FLOATING LIQUID GLASS BOTTOM NAVBAR DOCK -->
     <!-- =================================================================== -->
     <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-auto px-2">
-      <div class="liquid-glass-nav px-3 py-2.5 rounded-full flex items-center gap-2 sm:gap-3 shadow-2xl animate-border-pulse">
-        
+      <div
+        class="liquid-glass-nav px-3 py-2.5 rounded-full flex items-center gap-2 sm:gap-3 shadow-2xl animate-border-pulse">
+
         <!-- Home Page Nav Button -->
-        <button onclick="navigateTo('home')" id="nav-home" class="nav-btn active group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-600 text-white shadow-lg">
+        <button onclick="navigateTo('home')" id="nav-home"
+          class="nav-btn active group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-600 text-white shadow-lg">
           <i class="ph-bold ph-house text-base"></i>
           <span>Home</span>
         </button>
 
         <!-- Events Page Nav Button -->
-        <button onclick="navigateTo('events')" id="nav-events" class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
+        <button onclick="navigateTo('events')" id="nav-events"
+          class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
           <i class="ph-bold ph-lightning text-base"></i>
           <span>Events</span>
         </button>
 
         <!-- About Page Nav Button -->
-        <button onclick="navigateTo('about')" id="nav-about" class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
+        <button onclick="navigateTo('about')" id="nav-about"
+          class="nav-btn group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-extrabold transition-all text-slate-800 hover:text-purple-800 hover:bg-white/50">
           <i class="ph-bold ph-info text-base"></i>
           <span>About</span>
         </button>
@@ -600,11 +658,14 @@
   <!-- =================================================================== -->
   <!-- EVENT DETAIL MODAL (LIQUID GLASS) -->
   <!-- =================================================================== -->
-  <div id="event-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md transition-opacity">
-    <div class="relative w-full max-w-2xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
-      
+  <div id="event-modal"
+    class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md transition-opacity">
+    <div
+      class="relative w-full max-w-2xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
+
       <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
+      <button onclick="closeModal()"
+        class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
         <i class="ph-bold ph-x"></i>
       </button>
 
@@ -618,16 +679,20 @@
   <!-- =================================================================== -->
   <!-- GOOGLE FORM MANAGER MODAL (LIQUID GLASS BACKEND) -->
   <!-- =================================================================== -->
-  <div id="form-manager-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md">
-    <div class="relative w-full max-w-3xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
-      
-      <button onclick="closeFormManagerModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
+  <div id="form-manager-modal"
+    class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md">
+    <div
+      class="relative w-full max-w-3xl rounded-3xl liquid-glass-card p-6 sm:p-8 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto border border-white">
+
+      <button onclick="closeFormManagerModal()"
+        class="absolute top-5 right-5 w-9 h-9 rounded-full liquid-glass-pill text-slate-700 hover:text-slate-900 flex items-center justify-center font-bold text-lg shadow-sm">
         <i class="ph-bold ph-x"></i>
       </button>
 
       <div class="space-y-5">
         <div class="flex items-center gap-3.5">
-          <div class="w-11 h-11 rounded-2xl liquid-glass-pill text-purple-700 flex items-center justify-center text-2xl font-bold">
+          <div
+            class="w-11 h-11 rounded-2xl liquid-glass-pill text-purple-700 flex items-center justify-center text-2xl font-bold">
             <i class="ph-bold ph-google-logo"></i>
           </div>
           <div>
@@ -638,24 +703,26 @@
 
         <!-- Form Links Selector -->
         <div class="p-5 rounded-2xl liquid-glass-pill space-y-4">
-          <label class="block text-xs font-extrabold uppercase text-purple-900">Select Event to Register / Open Form:</label>
-          
+          <label class="block text-xs font-extrabold uppercase text-purple-900">Select Event to Register / Open
+            Form:</label>
+
           <div class="grid sm:grid-cols-2 gap-3">
             <select id="form-select" class="liquid-glass-input px-4 py-2.5 rounded-xl text-xs font-bold text-slate-800">
               <option value="main">Main Symposium Registration Form (All Events)</option>
               <option value="bot-blitz">1. Bot Blitz (Roborace)</option>
-              <option value="code-debug">2. CODE DEBUG CONSOLE (Coding)</option>
-              <option value="tech-transmit">3. TechTransmit (Paper Presentation)</option>
-              <option value="techora">4. TECHORA (Project Presentation)</option>
+              <option value="code-debug">2. Code Debug Console (Coding)</option>
+              <option value="tech-transmit">3. Paper Mania</option>
+              <option value="techora">4. Project Inventa</option>
               <option value="jumble-jam">5. Jumble Jam (Non-Tech)</option>
-              <option value="memory-morph">6. MEMORY MORPH (Non-Tech)</option>
+              <option value="memory-morph">6. Memory Morph (Non-Tech)</option>
               <option value="recall-rush">7. Recall Rush (Non-Tech)</option>
-              <option value="pick-unleash">8. Pick and unleash (Non-Tech)</option>
+              <option value="pick-unleash">8. Pick and Unleash (Non-Tech)</option>
               <option value="ws-node-red">9. Workshop on Node-RED</option>
               <option value="ws-plc">10. Workshop on PLC</option>
             </select>
 
-            <button onclick="launchForm()" class="liquid-glass-btn-primary py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+            <button onclick="launchForm()"
+              class="liquid-glass-btn-primary py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
               <i class="ph-bold ph-arrow-square-out text-base"></i>
               <span>Launch Google Form in New Tab</span>
             </button>
@@ -667,7 +734,8 @@
           <i class="ph-bold ph-note-pencil text-4xl text-purple-600"></i>
           <h4 class="font-bold text-slate-900 text-base">Direct Registration Link Ready</h4>
           <p class="text-xs text-slate-600 max-w-md mx-auto">
-            Click launch above to open your Google Form. Organizers can configure custom Google Form endpoints in the setting below.
+            Click launch above to open your Google Form. Organizers can configure custom Google Form endpoints in the
+            setting below.
           </p>
           <div class="pt-2">
             <button onclick="launchForm()" class="liquid-glass-btn-secondary px-6 py-2.5 rounded-xl font-bold text-xs">
@@ -683,13 +751,16 @@
             <span>Organizer Settings: Update Google Form URL Endpoint</span>
           </summary>
           <div class="mt-4 space-y-3 pt-2 border-t border-purple-200">
-            <p class="text-[11px] text-slate-600">Paste your live Google Form shareable link below to bind it to the entire portal:</p>
+            <p class="text-[11px] text-slate-600">Paste your live Google Form shareable link below to bind it to the
+              entire portal:</p>
             <div>
               <label class="block font-bold mb-1 text-slate-800">Target Google Form URL:</label>
-              <input type="url" id="form-url-input" placeholder="https://docs.google.com/forms/d/e/.../viewform" class="liquid-glass-input w-full px-3.5 py-2 rounded-xl text-xs font-mono" />
+              <input type="url" id="form-url-input" placeholder="https://docs.google.com/forms/d/e/.../viewform"
+                class="liquid-glass-input w-full px-3.5 py-2 rounded-xl text-xs font-mono" />
             </div>
             <div class="flex items-center gap-3">
-              <button onclick="saveCustomFormUrl()" class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-colors shadow-sm">
+              <button onclick="saveCustomFormUrl()"
+                class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-colors shadow-sm">
                 Save Google Form Endpoint
               </button>
               <span id="save-status" class="text-xs text-emerald-800 font-extrabold hidden">Saved Successfully!</span>
@@ -710,7 +781,7 @@
       'tech-transmit': {
         id: 'tech-transmit',
         category: 'tech',
-        title: 'TechTransmit (Paper Presentation)',
+        title: 'Paper Mania',
         badge: 'Technical',
         icon: 'ph-article',
         iconColor: 'bg-blue-100 text-blue-800',
@@ -730,7 +801,7 @@
       'techora': {
         id: 'techora',
         category: 'tech',
-        title: 'TECHORA (Project Presentation)',
+        title: 'Project Inventa',
         badge: 'Technical',
         icon: 'ph-presentation-chart',
         iconColor: 'bg-violet-100 text-violet-800',
@@ -749,7 +820,7 @@
       'code-debug': {
         id: 'code-debug',
         category: 'tech',
-        title: 'CODE DEBUG CONSOLE',
+        title: 'Code Debug Console',
         badge: 'Technical',
         icon: 'ph-code',
         iconColor: 'bg-indigo-100 text-indigo-800',
@@ -811,7 +882,7 @@
       'memory-morph': {
         id: 'memory-morph',
         category: 'nontech',
-        title: 'MEMORY MORPH',
+        title: 'Memory Morph',
         badge: 'Non-Tech',
         icon: 'ph-brain',
         iconColor: 'bg-pink-100 text-pink-800',
@@ -1090,18 +1161,17 @@
 
         const card = document.createElement('div');
         card.className = 'p-6 rounded-3xl liquid-glass-card space-y-4 flex flex-col justify-between';
-        
+
         card.innerHTML = `
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div class="w-12 h-12 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-2xl font-bold shadow-sm">
                 <i class="ph-bold ${item.icon}"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${
-                item.category === 'tech' ? 'bg-purple-100 text-purple-900 border border-purple-200' :
-                item.category === 'nontech' ? 'bg-amber-100 text-amber-900 border border-amber-200' :
-                'bg-emerald-100 text-emerald-900 border border-emerald-200'
-              }">
+              <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${item.category === 'tech' ? 'bg-purple-100 text-purple-900 border border-purple-200' :
+            item.category === 'nontech' ? 'bg-amber-100 text-amber-900 border border-amber-200' :
+              'bg-emerald-100 text-emerald-900 border border-emerald-200'
+          }">
                 ${item.badge}
               </span>
             </div>
@@ -1253,7 +1323,7 @@
       closeModal();
       const modal = document.getElementById('form-manager-modal');
       const select = document.getElementById('form-select');
-      
+
       if (select && eventId) {
         select.value = SYMPOSIUM_DATA[eventId] ? eventId : 'main';
       }
@@ -1325,11 +1395,12 @@
     }
 
     // Initialize on Window Load
-    window.onload = function() {
+    window.onload = function () {
       renderEventsGrid('all');
       setInterval(updateCountdown, 1000);
       updateCountdown();
     };
   </script>
 </body>
+
 </html>
