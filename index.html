@@ -305,8 +305,8 @@
                 <i class="ph-bold ph-arrow-right text-base"></i>
               </button>
 
-              <button
-                class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2 cursor-default">
+              <button onclick="navigateTo('events')"
+                class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2 animate-border-pulse shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all">
                 <i class="ph-bold ph-note-pencil text-base text-purple-600"></i>
                 <span>Registration Opens</span>
               </button>
@@ -343,7 +343,7 @@
               </div>
 
               <div class="text-xs text-slate-600 font-semibold pt-2 border-t border-purple-200/80">
-                Venue: Department of EIE Block
+                Venue: Maharaja Auditorium, Kongu Engineering College, Erode
               </div>
             </div>
           </div>
@@ -580,7 +580,7 @@
             </div>
             <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
               <h4 class="font-bold text-slate-900 text-sm">Venue</h4>
-              <p class="text-xs text-purple-700 font-extrabold">EIE Department Block & Auditorium</p>
+              <p class="text-xs text-purple-700 font-extrabold">Maharaja Auditorium, Kongu Engineering College, Erode</p>
             </div>
             <div class="p-4 rounded-2xl liquid-glass-pill space-y-1">
               <h4 class="font-bold text-slate-900 text-sm">Eligibility</h4>
@@ -795,10 +795,11 @@
         category: 'tech',
         title: 'Paper Mania',
         badge: 'Technical',
+        logo: 'event logos/paper mania.jpeg',
         icon: 'ph-article',
         iconColor: 'bg-blue-100 text-blue-800',
         timing: '10:30 AM - 01:00 PM',
-        venue: 'Seminar Hall A',
+        venue: 'Maharaja Auditorium, Kongu Engineering College, Erode',
         teamSize: '2 - 3 Members',
         description: 'Present original research papers on advanced themes like Smart Instrumentation, IoT in Automation, Biomedical Sensing, Robotics, AI/ML in Control Systems, and Renewable Energy.',
         rules: [
@@ -814,10 +815,11 @@
         category: 'tech',
         title: 'Project Inventa',
         badge: 'Technical',
+        logo: 'event logos/project inventa.jpeg',
         icon: 'ph-presentation-chart',
         iconColor: 'bg-violet-100 text-violet-800',
         timing: '10:30 AM - 01:00 PM',
-        venue: 'EIE Project Lab',
+        venue: 'Maharaja Auditorium, Kongu Engineering College, Erode',
         teamSize: '2 - 3 Members',
         description: 'Demonstrate working hardware prototypes or industrial software projects solving real-world engineering and instrumentation challenges.',
         rules: [
@@ -832,6 +834,7 @@
         category: 'tech',
         title: 'Code Debug Console',
         badge: 'Technical',
+        logo: 'event logos/code debug console.jpeg',
         icon: 'ph-code',
         iconColor: 'bg-indigo-100 text-indigo-800',
         timing: '11:00 AM - 01:00 PM',
@@ -851,6 +854,7 @@
         category: 'tech',
         title: 'Bot Blitz (Roborace)',
         badge: 'Technical',
+        logo: 'event logos/bot blitz.jpeg',
         icon: 'ph-robot',
         iconColor: 'bg-purple-100 text-purple-800',
         timing: '10:30 AM - 01:00 PM',
@@ -873,6 +877,7 @@
         category: 'nontech',
         title: 'Jumble Jam',
         badge: 'Non-Tech',
+        logo: 'event logos/jumble jam.jpeg',
         icon: 'ph-text-columns',
         iconColor: 'bg-amber-100 text-amber-800',
         timing: '02:00 PM - 03:30 PM',
@@ -891,6 +896,7 @@
         category: 'nontech',
         title: 'Memory Morph',
         badge: 'Non-Tech',
+        logo: 'event logos/memory morph.jpeg',
         icon: 'ph-brain',
         iconColor: 'bg-pink-100 text-pink-800',
         timing: '02:00 PM - 03:30 PM',
@@ -909,6 +915,7 @@
         category: 'nontech',
         title: 'Recall Rush',
         badge: 'Non-Tech',
+        logo: 'event logos/recall rush.jpeg',
         icon: 'ph-clock-counter-clockwise',
         iconColor: 'bg-rose-100 text-rose-800',
         timing: '02:30 PM - 04:00 PM',
@@ -927,6 +934,7 @@
         category: 'nontech',
         title: 'Pick and unleash',
         badge: 'Non-Tech',
+        logo: 'event logos/pick and unleash.jpeg',
         icon: 'ph-sparkle',
         iconColor: 'bg-orange-100 text-orange-800',
         timing: '02:30 PM - 04:00 PM',
@@ -1167,8 +1175,8 @@
         card.innerHTML = `
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-2xl font-bold shadow-sm">
-                <i class="ph-bold ${item.icon}"></i>
+              <div class="w-12 h-12 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-2xl font-bold shadow-sm overflow-hidden p-0.5">
+                ${item.logo ? `<img src="${encodeURI(item.logo)}" alt="${item.title}" class="w-full h-full object-cover rounded-xl" />` : `<i class="ph-bold ${item.icon}"></i>`}
               </div>
               <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${item.category === 'tech' ? 'bg-purple-100 text-purple-900 border border-purple-200' :
             item.category === 'nontech' ? 'bg-amber-100 text-amber-900 border border-amber-200' :
@@ -1238,8 +1246,8 @@
       const content = document.getElementById('modal-content');
       content.innerHTML = `
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-3xl font-bold shadow-md">
-            <i class="ph-bold ${item.icon}"></i>
+          <div class="w-14 h-14 rounded-2xl liquid-glass-pill ${item.iconColor} flex items-center justify-center text-3xl font-bold shadow-md overflow-hidden p-0.5">
+            ${item.logo ? `<img src="${encodeURI(item.logo)}" alt="${item.title}" class="w-full h-full object-cover rounded-xl" />` : `<i class="ph-bold ${item.icon}"></i>`}
           </div>
           <div>
             <span class="text-[10px] font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-200">
