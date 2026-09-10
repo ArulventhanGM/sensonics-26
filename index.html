@@ -408,6 +408,20 @@
           </div>
         </div>
 
+        <!-- Participant Eligibility Rule -->
+        <div class="p-5 sm:p-6 rounded-3xl liquid-glass-pill border border-emerald-200/80 flex items-start gap-4">
+          <div class="w-10 h-10 shrink-0 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+            <i class="ph-bold ph-info"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 text-sm sm:text-base">Participant Eligibility</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+              Each participant can register for a maximum of 3 events. Participation in at least 1 Technical event
+              and 1 Non-Technical event is mandatory. The third event is completely on your choice that you can either choose Technical or Non Technical.
+            </p>
+          </div>
+        </div>
+
         <!-- Dynamic Events Grid -->
         <div id="events-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           <!-- Dynamically populated via JavaScript -->
@@ -718,6 +732,11 @@
         <div class="p-5 rounded-2xl liquid-glass-pill space-y-4">
           <label class="block text-xs font-extrabold uppercase text-purple-900">Select Event to Register / Open
             Form:</label>
+
+          <div class="rounded-xl border border-emerald-200 bg-emerald-50/70 p-3 text-xs text-emerald-950 leading-relaxed">
+            <span class="font-extrabold">Participation rule:</span> Maximum 3 events per participant; 1 Technical
+            and 1 Non-Technical event are mandatory. The third event is your choice.
+          </div>
 
           <div class="grid sm:grid-cols-2 gap-3">
             <select id="form-select" class="liquid-glass-input px-4 py-2.5 rounded-xl text-xs font-bold text-slate-800">
