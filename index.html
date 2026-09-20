@@ -1421,9 +1421,9 @@
       const status = document.getElementById('registration-status');
       const notice = document.getElementById('registration-notice');
 
-      if (status) status.innerText = isOpen ? 'Registrations close today at 10:00 PM' : 'Registration Closed';
+      if (status) status.innerText = isOpen ? 'Registrations close today at 09:00 PM' : 'Registration Closed';
       if (notice) {
-        notice.innerText = isOpen ? 'Registration closes today at 10:00 PM.' : 'Registration closed.';
+        notice.innerText = isOpen ? 'Registration closes today at 09:00 PM.' : 'Registration closed.';
         notice.classList.toggle('text-red-700', !isOpen);
         notice.classList.toggle('text-purple-900', isOpen);
       }
