@@ -309,10 +309,10 @@
               <button onclick="navigateTo('events')"
                 class="liquid-glass-btn-secondary px-7 py-3.5 rounded-2xl font-bold text-sm flex items-center gap-2 animate-border-pulse shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] transition-all">
                 <i class="ph-bold ph-note-pencil text-base text-purple-600"></i>
-                <span id="registration-status">Registrations close today at 8:00 PM</span>
+                <span id="registration-status">Registrations close today at 10:00 PM</span>
               </button>
             </div>
-            <p id="registration-notice" class="text-xs font-bold text-purple-900">Registration closes today at 8:00 PM.</p>
+            <p id="registration-notice" class="text-xs font-bold text-purple-900">Registration closes today at 10:00 PM.</p>
           </div>
 
           <!-- Countdown Glass Tile -->
@@ -1410,7 +1410,7 @@
       document.getElementById('form-manager-modal').classList.add('hidden');
     }
 
-    const registrationDeadline = new Date('September 20, 2026 20:00:00');
+    const registrationDeadline = new Date('September 20, 2026 22:00:00');
 
     function isRegistrationOpen() {
       return new Date() < registrationDeadline;
@@ -1421,9 +1421,9 @@
       const status = document.getElementById('registration-status');
       const notice = document.getElementById('registration-notice');
 
-      if (status) status.innerText = isOpen ? 'Registrations close today at 8:00 PM' : 'Registration Closed';
+      if (status) status.innerText = isOpen ? 'Registrations close today at 10:00 PM' : 'Registration Closed';
       if (notice) {
-        notice.innerText = isOpen ? 'Registration closes today at 8:00 PM.' : 'Registration closed.';
+        notice.innerText = isOpen ? 'Registration closes today at 10:00 PM.' : 'Registration closed.';
         notice.classList.toggle('text-red-700', !isOpen);
         notice.classList.toggle('text-purple-900', isOpen);
       }
